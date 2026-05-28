@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Payment Confirmed — Phone Money Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+
+<!-- META PIXEL — PURCHASE EVENT -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1269301885151780');
+fbq('track','PageView');
+// 🔥 PURCHASE EVENT — fires when buyer lands on this page
+fbq('track','Purchase',{
+  value: 2500,
+  currency: 'NGN',
+  content_name: 'Phone Money Academy',
+  content_type: 'product'
+});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1269301885151780&ev=Purchase&noscript=1"/></noscript>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:linear-gradient(135deg,#0F4C45 0%,#0A1628 50%,#1E0A3C 100%);
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:40px 16px;
+  text-align:center;
+  overflow-x:hidden;
+  width:100%;
+}
+.card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  padding:40px 24px;
+  max-width:480px;
+  width:100%;
+}
+.check-circle{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,#16A34A,#22C55E);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+  font-size:36px;
+  box-shadow:0 8px 32px rgba(34,197,94,.35);
+  animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) both;
+}
+@keyframes popIn{
+  from{transform:scale(0);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.confirmed{
+  font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:#4ADE80;margin-bottom:10px;
+}
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(24px,6vw,32px);
+  font-weight:800;color:#fff;
+  line-height:1.2;margin-bottom:12px;
+}
+.sub{
+  font-size:clamp(14px,3.5vw,16px);
+  color:#99F6E4;line-height:1.65;margin-bottom:28px;
+}
+.divider{
+  border:none;border-top:1px solid rgba(255,255,255,.1);
+  margin:24px 0;
+}
+.steps-title{
+  font-family:'Syne',sans-serif;
+  font-size:14px;font-weight:700;
+  color:#F59E0B;margin-bottom:16px;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.steps{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.step{
+  display:flex;gap:14px;align-items:flex-start;
+  background:rgba(255,255,255,.05);
+  border-radius:12px;padding:14px;text-align:left;
+}
+.step-num{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#0D9488,#14B8A6);
+  color:#fff;font-family:'Syne',sans-serif;
+  font-size:14px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-text h3{
+  font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;
+}
+.step-text p{font-size:12px;color:#99F6E4;line-height:1.5;}
+.access-btn{
+  display:block;width:100%;
+  background:linear-gradient(135deg,#F59E0B,#D97706);
+  color:#1A1A00;font-family:'Syne',sans-serif;
+  font-size:clamp(15px,4vw,17px);font-weight:700;
+  padding:16px;border-radius:14px;
+  text-decoration:none;border:none;cursor:pointer;
+  box-shadow:0 8px 24px rgba(245,158,11,.35);
+  transition:transform .2s;margin-bottom:12px;
+}
+.access-btn:hover{transform:translateY(-2px);}
+.whatsapp-btn{
+  display:block;width:100%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:500;
+  padding:14px;border-radius:14px;
+  text-decoration:none;cursor:pointer;
+  transition:background .2s;
+}
+.whatsapp-btn:hover{background:rgba(255,255,255,.12);}
+.note{
+  font-size:12px;color:#6B7280;
+  margin-top:20px;line-height:1.6;
+}
+.confetti{
+  position:fixed;top:0;left:0;width:100%;
+  pointer-events:none;z-index:999;
+  overflow:hidden;height:100vh;
+}
+.c{
+  position:absolute;top:-10px;
+  width:8px;height:8px;border-radius:2px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(100vh) rotate(720deg);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Confetti -->
+<div class="confetti" id="confetti"></div>
+
+<div class="card">
+  <div class="check-circle">✅</div>
+  <div class="confirmed">Payment Confirmed</div>
+  <h1>Welcome to Phone Money Academy! 🎉</h1>
+  <p class="sub">Your payment was successful. You now have full access to all 5 modules, 18 lessons, and both bonuses. Let's get you making sales!</p>
+
+  <hr class="divider"/>
+
+  <div class="steps-title">Here's what to do next</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Check your email</h3>
+        <p>Selar has sent your course access link to the email you used during checkout. Check your inbox and spam folder.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Start with Module 1</h3>
+        <p>Don't skip ahead. Module 1 sets the foundation that makes everything else work. Watch it first.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Take action immediately</h3>
+        <p>Do the action step at the end of each lesson before moving to the next one. That's how results happen fast.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://selar.com/d941110d87" class="access-btn">
+    Access My Course Now →
+  </a>
+  <a href="https://wa.me/2348064046821" class="whatsapp-btn">
+    💬 Need help? WhatsApp us
+  </a>
+  <p class="note">
+    Didn't get your email? Check your spam folder or WhatsApp us and we'll sort it out within minutes.
+  </p>
+</div>
+
+<script>
+// Confetti animation
+const colors=['#F59E0B','#4ADE80','#A78BFA','#38BDF8','#FB7185','#fff'];
+const container=document.getElementById('confetti');
+for(let i=0;i<60;i++){
+  const c=document.createElement('div');
+  c.className='c';
+  c.style.left=Math.random()*100+'vw';
+  c.style.background=colors[Math.floor(Math.random()*colors.length)];
+  c.style.width=(Math.random()*8+4)+'px';
+  c.style.height=(Math.random()*8+4)+'px';
+  c.style.animationDuration=(Math.random()*2+2)+'s';
+  c.style.animationDelay=(Math.random()*2)+'s';
+  c.style.opacity=Math.random()*0.8+0.2;
+  container.appendChild(c);
+}
+</script>
+</body>
+</html>
